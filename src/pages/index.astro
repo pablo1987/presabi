@@ -1,0 +1,241 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import WhatsAppFloat from '../components/WhatsAppFloat.astro';
+
+const services = [
+  'Atención médica a domicilio',
+  'Área protegida para empresas e instituciones',
+  'Capacitaciones (RCP, DEA, primeros auxilios)',
+  'Traslados de alta y mediana complejidad',
+  'Psicología online 24 hs',
+  'Internación domiciliaria',
+  'Enfermería a domicilio'
+];
+
+const sanJeronimo = ['Arocena', 'San Fabián', 'Pueblo Irigoyen', 'Barrancas', 'Díaz', 'Monje', 'Maciel', 'Gaboto'];
+const iriondo = ['Oliveros', 'La Ribera', 'Timbúes', 'Carrizales', 'Serodino', 'Andino'];
+
+const differentiators = [
+  'Atención enfocada en el bienestar integral del paciente y su familia.',
+  'Equipo orientado a respuestas claras, cercanas y responsables.',
+  'Servicios adaptables a hogares, empresas e instituciones.',
+  'Cobertura local con conocimiento del territorio y sus necesidades sanitarias.'
+];
+---
+
+<MainLayout
+  title="PRESABI S.A.S. | Medicina Domiciliaria"
+  description="Servicios de salud y atención médica domiciliaria en San Jerónimo e Iriondo, Santa Fe."
+>
+  <header class="sticky top-0 z-40 border-b border-slate-100 bg-white/95 backdrop-blur">
+    <div class="section-container flex items-center justify-between py-3">
+      <a href="#inicio" class="flex items-center gap-3" aria-label="Ir al inicio de PRESABI S.A.S.">
+        <img src="/images/4d40bf3b-26ae-4e5c-a07f-efe5b980f3c8.jpg" alt="Logo de PRESABI S.A.S." class="h-12 w-12 rounded-full object-cover" />
+        <div>
+          <p class="text-sm font-semibold leading-tight text-presabi-blue">PRESABI S.A.S.</p>
+          <p class="text-xs text-slate-500">Medicina Domiciliaria y Servicios de Salud</p>
+        </div>
+      </a>
+
+      <nav aria-label="Menú principal" class="hidden items-center gap-6 md:flex">
+        <a href="#nosotros" class="text-sm font-medium text-slate-600 hover:text-presabi-blue">Nosotros</a>
+        <a href="#servicios" class="text-sm font-medium text-slate-600 hover:text-presabi-blue">Servicios</a>
+        <a href="#cobertura" class="text-sm font-medium text-slate-600 hover:text-presabi-blue">Cobertura</a>
+        <a href="#contacto" class="text-sm font-medium text-slate-600 hover:text-presabi-blue">Contacto</a>
+      </nav>
+
+      <a href="#contacto" class="rounded-full bg-presabi-blue px-4 py-2 text-sm font-semibold text-white transition hover:bg-presabi-sky">Contacto</a>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <section id="inicio" class="bg-gradient-to-b from-presabi-light to-white py-14 sm:py-20">
+      <div class="section-container grid items-center gap-10 lg:grid-cols-2">
+        <div>
+          <img src="/images/4d40bf3b-26ae-4e5c-a07f-efe5b980f3c8.jpg" alt="Identidad visual de PRESABI S.A.S." class="mb-6 h-16 w-16 rounded-full object-cover shadow-card" />
+          <p class="mb-3 text-sm font-semibold uppercase tracking-wide text-presabi-turquoise">Salud, en la puerta de tu casa</p>
+          <h1 class="text-3xl font-bold tracking-tight text-presabi-blue sm:text-4xl">
+            Atención médica domiciliaria y servicios de salud en San Jerónimo e Iriondo, Santa Fe
+          </h1>
+          <p class="mt-5 text-base leading-relaxed text-slate-600">
+            PRESABI S.A.S. acompaña a familias, adultos mayores, pacientes domiciliarios, empresas e instituciones con soluciones de salud confiables, claras y cercanas.
+          </p>
+          <p class="mt-4 inline-flex rounded-full bg-white px-4 py-2 text-sm font-medium text-presabi-blue shadow-sm ring-1 ring-presabi-blue/10">
+            Cobertura en departamentos San Jerónimo e Iriondo, Santa Fe
+          </p>
+
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a
+              href="https://wa.me/5493410000000?text=Hola%2C%20quiero%20consultar%20por%20los%20servicios%20de%20PRESABI%20S.A.S."
+              target="_blank"
+              rel="noopener noreferrer"
+              class="rounded-full bg-green-500 px-5 py-3 text-sm font-semibold text-white transition hover:bg-green-600"
+            >
+              Consultar por WhatsApp
+            </a>
+            <a href="#servicios" class="rounded-full border border-presabi-blue px-5 py-3 text-sm font-semibold text-presabi-blue transition hover:bg-presabi-blue hover:text-white">
+              Ver servicios
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <img src="/images/beee7723-31ec-4743-9de3-929a2c67c8a9.jpg" alt="Profesional de salud brindando atención domiciliaria" class="w-full rounded-3xl object-cover shadow-card" />
+        </div>
+      </div>
+    </section>
+
+    <section id="nosotros" class="py-16 sm:py-20">
+      <div class="section-container">
+        <h2 class="section-title">Nosotros</h2>
+        <p class="section-copy max-w-3xl">
+          Somos una empresa de medicina domiciliaria y servicios de salud que trabaja con compromiso institucional, profesionalismo y trato humano. Brindamos atención en el lugar donde cada persona la necesita, promoviendo continuidad asistencial, acompañamiento familiar y una comunicación simple y transparente.
+        </p>
+      </div>
+    </section>
+
+    <section id="servicios" class="bg-slate-50 py-16 sm:py-20">
+      <div class="section-container">
+        <h2 class="section-title">Servicios</h2>
+        <p class="section-copy max-w-3xl">Prestaciones pensadas para dar respuesta sanitaria oportuna en hogares, empresas e instituciones.</p>
+
+        <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {services.map((service) => (
+            <article class="rounded-2xl bg-white p-5 shadow-card ring-1 ring-slate-100">
+              <h3 class="text-base font-semibold text-presabi-blue">{service}</h3>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 sm:py-20">
+      <div class="section-container">
+        <h2 class="section-title">Secciones destacadas</h2>
+        <div class="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          <article class="rounded-2xl border border-slate-100 p-5">
+            <h3 class="font-semibold text-presabi-blue">Atención domiciliaria</h3>
+            <p class="mt-2 text-sm text-slate-600">Atención médica en domicilio para seguimiento, evaluación y resolución inicial.</p>
+          </article>
+          <article class="rounded-2xl border border-slate-100 p-5">
+            <h3 class="font-semibold text-presabi-blue">Área protegida</h3>
+            <p class="mt-2 text-sm text-slate-600">Cobertura para empresas e instituciones con enfoque preventivo y de respuesta.</p>
+          </article>
+          <article class="rounded-2xl border border-slate-100 p-5">
+            <h3 class="font-semibold text-presabi-blue">Capacitaciones</h3>
+            <p class="mt-2 text-sm text-slate-600">Formación en RCP, DEA y primeros auxilios para personal y comunidad.</p>
+          </article>
+          <article class="rounded-2xl border border-slate-100 p-5">
+            <h3 class="font-semibold text-presabi-blue">Traslados</h3>
+            <p class="mt-2 text-sm text-slate-600">Traslados de alta y mediana complejidad con coordinación y seguridad.</p>
+          </article>
+          <article class="rounded-2xl border border-slate-100 p-5">
+            <h3 class="font-semibold text-presabi-blue">Psicología online</h3>
+            <p class="mt-2 text-sm text-slate-600">Acompañamiento psicológico online disponible las 24 horas.</p>
+          </article>
+          <article class="rounded-2xl border border-slate-100 p-5">
+            <h3 class="font-semibold text-presabi-blue">Internación + enfermería</h3>
+            <p class="mt-2 text-sm text-slate-600">Soporte de internación domiciliaria y enfermería para continuidad de cuidados.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-presabi-light py-16 sm:py-20">
+      <div class="section-container">
+        <h2 class="section-title">Por qué elegirnos</h2>
+        <ul class="mt-8 space-y-3">
+          {differentiators.map((item) => (
+            <li class="flex gap-3 rounded-xl bg-white p-4 text-sm text-slate-700 shadow-sm ring-1 ring-slate-100">
+              <span class="mt-0.5 h-2.5 w-2.5 shrink-0 rounded-full bg-presabi-accent" aria-hidden="true"></span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <section id="cobertura" class="py-16 sm:py-20">
+      <div class="section-container">
+        <h2 class="section-title">Cobertura en San Jerónimo e Iriondo, Santa Fe</h2>
+        <p class="section-copy">Trabajamos con presencia local en ambos departamentos para brindar una atención cercana y coordinada.</p>
+
+        <div class="mt-10 grid gap-8 md:grid-cols-2">
+          <article class="rounded-2xl bg-slate-50 p-6 ring-1 ring-slate-100">
+            <h3 class="text-lg font-semibold text-presabi-blue">Departamento San Jerónimo</h3>
+            <ul class="mt-4 flex flex-wrap gap-2">
+              {sanJeronimo.map((place) => <li class="rounded-full bg-white px-3 py-1.5 text-sm text-slate-700 ring-1 ring-slate-200">{place}</li>)}
+            </ul>
+          </article>
+
+          <article class="rounded-2xl bg-slate-50 p-6 ring-1 ring-slate-100">
+            <h3 class="text-lg font-semibold text-presabi-blue">Departamento Iriondo</h3>
+            <ul class="mt-4 flex flex-wrap gap-2">
+              {iriondo.map((place) => <li class="rounded-full bg-white px-3 py-1.5 text-sm text-slate-700 ring-1 ring-slate-200">{place}</li>)}
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-presabi-blue py-16 text-white sm:py-20">
+      <div class="section-container text-center">
+        <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">Cobertura activa en San Jerónimo e Iriondo, Santa Fe</h2>
+        <p class="mx-auto mt-4 max-w-2xl text-sm text-blue-50 sm:text-base">
+          Si necesitás coordinar atención médica domiciliaria o servicios de salud para tu familia, empresa o institución, estamos para ayudarte.
+        </p>
+        <a
+          href="https://wa.me/5493410000000?text=Hola%2C%20quiero%20coordinar%20atenci%C3%B3n%20con%20PRESABI%20S.A.S."
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-8 inline-flex rounded-full bg-white px-6 py-3 text-sm font-semibold text-presabi-blue transition hover:bg-presabi-light"
+        >
+          Contactar por WhatsApp
+        </a>
+      </div>
+    </section>
+
+    <section id="contacto" class="py-16 sm:py-20">
+      <div class="section-container grid gap-10 lg:grid-cols-2">
+        <div>
+          <h2 class="section-title">Contacto</h2>
+          <p class="section-copy">Canales de contacto institucional (editables):</p>
+          <ul class="mt-6 space-y-3 text-sm text-slate-700">
+            <li><strong>Dominio:</strong> presabi.com.ar</li>
+            <li><strong>WhatsApp:</strong> +54 9 341 0000000</li>
+            <li><strong>Email:</strong> info@presabi.com.ar</li>
+            <li><strong>Dirección:</strong> Dirección a confirmar</li>
+          </ul>
+        </div>
+
+        <form class="rounded-2xl bg-slate-50 p-6 shadow-card ring-1 ring-slate-100" method="post" action="#" aria-label="Formulario de contacto">
+          <p class="mb-4 text-sm text-slate-600">Formulario preparado para integración de envío por email.</p>
+          <div class="grid gap-4">
+            <label class="text-sm font-medium text-slate-700" for="nombre">Nombre</label>
+            <input id="nombre" name="nombre" type="text" required class="rounded-xl border border-slate-300 px-4 py-2.5 focus:border-presabi-sky focus:outline-none focus:ring-2 focus:ring-presabi-sky/20" />
+
+            <label class="text-sm font-medium text-slate-700" for="telefono">Teléfono</label>
+            <input id="telefono" name="telefono" type="tel" required class="rounded-xl border border-slate-300 px-4 py-2.5 focus:border-presabi-sky focus:outline-none focus:ring-2 focus:ring-presabi-sky/20" />
+
+            <label class="text-sm font-medium text-slate-700" for="localidad">Localidad</label>
+            <input id="localidad" name="localidad" type="text" required class="rounded-xl border border-slate-300 px-4 py-2.5 focus:border-presabi-sky focus:outline-none focus:ring-2 focus:ring-presabi-sky/20" />
+
+            <label class="text-sm font-medium text-slate-700" for="servicio">Servicio</label>
+            <input id="servicio" name="servicio" type="text" required class="rounded-xl border border-slate-300 px-4 py-2.5 focus:border-presabi-sky focus:outline-none focus:ring-2 focus:ring-presabi-sky/20" />
+
+            <label class="text-sm font-medium text-slate-700" for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" rows="4" required class="rounded-xl border border-slate-300 px-4 py-2.5 focus:border-presabi-sky focus:outline-none focus:ring-2 focus:ring-presabi-sky/20"></textarea>
+          </div>
+
+          <button type="submit" class="mt-6 rounded-full bg-presabi-blue px-6 py-3 text-sm font-semibold text-white transition hover:bg-presabi-sky">Enviar consulta</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-100 py-8 text-center text-xs text-slate-500">
+    <p>© {new Date().getFullYear()} PRESABI S.A.S. | Medicina Domiciliaria y Servicios de Salud</p>
+  </footer>
+
+  <WhatsAppFloat />
+</MainLayout>

@@ -1,0 +1,33 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index,follow" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content="https://presabi.com.ar" />
+    <meta property="og:image" content="/images/4d40bf3b-26ae-4e5c-a07f-efe5b980f3c8.jpg" />
+    <link rel="icon" href="/images/4d40bf3b-26ae-4e5c-a07f-efe5b980f3c8.jpg" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <a href="#contenido" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:rounded-md focus:bg-white focus:px-3 focus:py-2 focus:text-presabi-blue">
+      Saltar al contenido
+    </a>
+    <slot />
+  </body>
+</html>
