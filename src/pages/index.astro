@@ -242,6 +242,25 @@ const differentiators = [
   <script is:inline>
     const form = document.getElementById('contact-form');
     const submitButton = document.getElementById('contact-submit');
+    const targetEmail = 'info@presabi.com.ar';
+
+    const sendContactEmail = (data) => {
+      const subject = encodeURIComponent(`Nueva consulta web - ${data.servicio}`);
+      const body = encodeURIComponent(
+        [
+          `Nombre: ${data.nombre}`,
+          `Teléfono: ${data.telefono}`,
+          `Localidad: ${data.localidad}`,
+          `Servicio: ${data.servicio}`,
+          '',
+          'Mensaje:',
+          data.mensaje
+        ].join('\n')
+      );
+
+      const mailtoUrl = `mailto:${targetEmail}?subject=${subject}&body=${body}`;
+      window.location.href = mailtoUrl;
+    };
 
     form?.addEventListener('submit', async (event) => {
       event.preventDefault();
@@ -257,20 +276,8 @@ const differentiators = [
       const payload = Object.fromEntries(formData.entries());
 
       try {
-        const response = await fetch('https://formsubmit.co/ajax/info@presabi.com.ar', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            Accept: 'application/json'
-          },
-          body: JSON.stringify(payload)
-        });
-
-        if (!response.ok) {
-          throw new Error('No se pudo enviar el correo.');
-        }
-
-        alert('El correo se envió con éxito.');
+        sendContactEmail(payload);
+        alert('Se abrió tu aplicación de correo para enviar el mensaje a info@presabi.com.ar.');
         form.reset();
       } catch (error) {
         console.error(error);
