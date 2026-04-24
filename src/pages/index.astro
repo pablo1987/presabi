@@ -208,8 +208,8 @@ const differentiators = [
           </ul>
         </div>
 
-        <form class="rounded-2xl bg-slate-50 p-6 shadow-card ring-1 ring-slate-100" method="post" action="#" aria-label="Formulario de contacto">
-          <p class="mb-4 text-sm text-slate-600">Formulario preparado para integración de envío por email.</p>
+        <form id="contact-form" class="rounded-2xl bg-slate-50 p-6 shadow-card ring-1 ring-slate-100" method="post" action="#" aria-label="Formulario de contacto">
+          <p class="mb-4 text-sm text-slate-600">Completá el formulario y te responderemos por correo.</p>
           <div class="grid gap-4">
             <label class="text-sm font-medium text-slate-700" for="nombre">Nombre</label>
             <input id="nombre" name="nombre" type="text" required class="rounded-xl border border-slate-300 px-4 py-2.5 focus:border-presabi-sky focus:outline-none focus:ring-2 focus:ring-presabi-sky/20" />
@@ -227,7 +227,7 @@ const differentiators = [
             <textarea id="mensaje" name="mensaje" rows="4" required class="rounded-xl border border-slate-300 px-4 py-2.5 focus:border-presabi-sky focus:outline-none focus:ring-2 focus:ring-presabi-sky/20"></textarea>
           </div>
 
-          <button type="submit" class="mt-6 rounded-full bg-presabi-blue px-6 py-3 text-sm font-semibold text-white transition hover:bg-presabi-sky">Enviar consulta</button>
+          <button id="contact-submit" type="submit" class="mt-6 rounded-full bg-presabi-blue px-6 py-3 text-sm font-semibold text-white transition hover:bg-presabi-sky">Enviar consulta</button>
         </form>
       </div>
     </section>
@@ -238,4 +238,56 @@ const differentiators = [
   </footer>
 
   <WhatsAppFloat />
+
+  <script is:inline>
+    const form = document.getElementById('contact-form');
+    const submitButton = document.getElementById('contact-submit');
+    const targetEmail = 'info@presabi.com.ar';
+
+    const sendContactEmail = (data) => {
+      const subject = encodeURIComponent(`Nueva consulta web - ${data.servicio}`);
+      const body = encodeURIComponent(
+        [
+          `Nombre: ${data.nombre}`,
+          `Teléfono: ${data.telefono}`,
+          `Localidad: ${data.localidad}`,
+          `Servicio: ${data.servicio}`,
+          '',
+          'Mensaje:',
+          data.mensaje
+        ].join('\n')
+      );
+
+      const mailtoUrl = `mailto:${targetEmail}?subject=${subject}&body=${body}`;
+      window.location.href = mailtoUrl;
+    };
+
+    form?.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      const originalButtonText = submitButton?.textContent ?? 'Enviar consulta';
+
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.textContent = 'Enviando...';
+      }
+
+      const formData = new FormData(form);
+      const payload = Object.fromEntries(formData.entries());
+
+      try {
+        sendContactEmail(payload);
+        alert('Se abrió tu aplicación de correo para enviar el mensaje a info@presabi.com.ar.');
+        form.reset();
+      } catch (error) {
+        console.error(error);
+        alert('Se produjo un error al enviar el correo. Intentá nuevamente.');
+      } finally {
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.textContent = originalButtonText;
+        }
+      }
+    });
+  </script>
 </MainLayout>
